@@ -157,7 +157,7 @@ const Series = () => {
 };
 
 const PlaylistSection = styled.section`
-  padding: 80px 0;
+  padding: 80px 0 60px 0;
 `;
 
 const PlaylistGrid = styled.div`
