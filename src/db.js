@@ -89,4 +89,52 @@ const playlists = [
   },
 ];
 
-export { playlists };
+const equipment = [
+  {
+    title: 'Treadmills',
+    img_src:
+      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/NTL390190664.png',
+  },
+  {
+    title: 'Bikes',
+    img_src:
+      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/bikeperson.png',
+  },
+  {
+    title: 'Ellipticals',
+    img_src:
+      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/ellipticalperson.png',
+  },
+  {
+    title: 'Strength',
+    img_src:
+      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/6-pulley12557.png',
+  },
+];
+
+const reviews = [
+  {
+    id: 1,
+    review: `“You focus on putting in the work, and the technology handles the
+    rest.”`,
+    image:
+      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/b46fe6b0273525eb21e9941073c0abdb882b28b4/src/images/svgs/gear-junkie-logo.svg',
+    alt: 'Gear Junkie Logo',
+  },
+  {
+    id: 2,
+    review: `“Literally transports you from home to wherever you choose to run.”`,
+    image:
+      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/b46fe6b0273525eb21e9941073c0abdb882b28b4/src/images/svgs/wired-logo.svg',
+    alt: 'Wired Logo',
+  },
+  {
+    id: 3,
+    review: `“Breathes new life into a tired, old running routine.”`,
+    image:
+      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/b46fe6b0273525eb21e9941073c0abdb882b28b4/src/images/svgs/mashable-logo.svg',
+    alt: 'Mashable Logo',
+  },
+];
+
+export { playlists, equipment, reviews };

@@ -2,8 +2,8 @@ import React, { Suspense } from 'react';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import './index.scss';
 import useWindowSize from './hooks/useWindowSize';
-import SeriesContext from './context/series-context';
-import { playlists } from './db';
+import GlobalContext from './context/global-context';
+import { playlists, equipment, reviews } from './db';
 import Home from './pages/HomePage';
 import Loading from './components/Loading';
 import TheNavbar from './components/TheNavbar';
@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <Suspense fallback={<Loading />}>
-      <SeriesContext.Provider value={{ playlists: playlists }}>
+      <GlobalContext.Provider value={{ playlists, equipment, reviews }}>
         {size.width > 1024 ? <TheNavbar /> : null}
         <Router>
           <div>
@@ -27,7 +27,7 @@ const App = () => {
           </div>
         </Router>
         <TheFooter />
-      </SeriesContext.Provider>
+      </GlobalContext.Provider>
     </Suspense>
   );
 };

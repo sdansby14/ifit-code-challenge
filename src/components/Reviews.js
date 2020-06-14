@@ -1,34 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
-import WiredLogo from '../images/svgs/wired-logo.svg';
-import MashableLogo from '../images/svgs/mashable-logo.svg';
-import GearJunkieLogo from '../images/svgs/gear-junkie-logo.svg';
+import GlobalContext from '../context/global-context';
 
 const Reviews = () => {
   return (
-    <ReviewsSection>
-      <ReviewGrid>
-        <Card>
-          <CompanyLogo src={GearJunkieLogo} alt="Gear Junkie Logo" />
-          <ReviewSpan>
-            “You focus on putting in the work, and the technology handles the
-            rest.”
-          </ReviewSpan>
-        </Card>
-        <Card>
-          <CompanyLogo src={WiredLogo} alt="Wired Logo" />
-          <ReviewSpan>
-            “Literally transports you from home to wherever you choose to run.”
-          </ReviewSpan>
-        </Card>
-        <Card>
-          <CompanyLogo src={MashableLogo} alt="Mashable Logo" />
-          <ReviewSpan>
-            “Breathes new life into a tired, old running routine.”
-          </ReviewSpan>
-        </Card>
-      </ReviewGrid>
-    </ReviewsSection>
+    <GlobalContext.Consumer>
+      {(context) => (
+        <ReviewsSection>
+          <ReviewGrid>
+            {context.reviews.map(({ id, review, image, alt }) => {
+              return (
+                <Card key={id}>
+                  <CompanyLogo src={image} alt={alt} />
+                  <ReviewSpan>{review}</ReviewSpan>
+                </Card>
+              );
+            })}
+          </ReviewGrid>
+        </ReviewsSection>
+      )}
+    </GlobalContext.Consumer>
   );
 };
 

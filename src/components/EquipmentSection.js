@@ -1,46 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
-
-const equipment = [
-  {
-    title: 'Treadmills',
-    img_src:
-      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/NTL390190664.png',
-  },
-  {
-    title: 'Bikes',
-    img_src:
-      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/bikeperson.png',
-  },
-  {
-    title: 'Ellipticals',
-    img_src:
-      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/ellipticalperson.png',
-  },
-  {
-    title: 'Strength',
-    img_src:
-      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/6-pulley12557.png',
-  },
-];
+import GlobalContext from '../context/global-context';
 
 const EquipmentSection = () => {
   return (
-    <Equipment>
-      <EquipmentHeader>
-        Interested in our exciting iFit-enabled equipment?
-      </EquipmentHeader>
-      <EquipmentContainer>
-        {equipment.map(({ title, img_src }) => {
-          return (
-            <EquipmentCard key={title}>
-              <img src={img_src} alt={title} />
-              <EquipmentTitle>{title}</EquipmentTitle>
-            </EquipmentCard>
-          );
-        })}
-      </EquipmentContainer>
-    </Equipment>
+    <GlobalContext.Consumer>
+      {(context) => (
+        <Equipment>
+          <EquipmentHeader>
+            Interested in our exciting iFit-enabled equipment?
+          </EquipmentHeader>
+          <EquipmentContainer>
+            {context.equipment.map(({ title, img_src }) => {
+              return (
+                <EquipmentCard key={title}>
+                  <img src={img_src} alt={title} />
+                  <EquipmentTitle>{title}</EquipmentTitle>
+                </EquipmentCard>
+              );
+            })}
+          </EquipmentContainer>
+        </Equipment>
+      )}
+    </GlobalContext.Consumer>
   );
 };
 

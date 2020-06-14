@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import TimerIcon from '../images/Icon/icn_timer_line.png';
 import PlayIcon from '../images/svgs/player.svg';
 import DistanceIcon from '../images/Icon/icn_distance_line.png';
-import SeriesContext from '../context/series-context';
+import GlobalContext from '../context/global-context';
 
 const Series = () => {
   return (
-    <SeriesContext.Consumer>
+    <GlobalContext.Consumer>
       {(context) => (
         <PlaylistSection>
           <PlaylistGrid>
@@ -66,7 +66,7 @@ const Series = () => {
           </PlaylistGrid>
         </PlaylistSection>
       )}
-    </SeriesContext.Consumer>
+    </GlobalContext.Consumer>
   );
 };
 
