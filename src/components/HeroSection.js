@@ -101,7 +101,7 @@ const Button = styled.button`
   overflow: visible;
   width: 60%;
   height: 56px;
-  max-width: 850px;
+  max-width: 392px;
   margin: 0 auto;
   justify-content: center;
   align-items: center;

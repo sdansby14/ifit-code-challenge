@@ -1,158 +1,72 @@
 import React from 'react';
 import styled from 'styled-components';
 import TimerIcon from '../images/Icon/icn_timer_line.png';
-import PlayIcon from '../images/Icon/icn_playlist.png';
+import PlayIcon from '../images/svgs/player.svg';
 import DistanceIcon from '../images/Icon/icn_distance_line.png';
-
-const playlists = [
-  {
-    title: 'Lake Inniscarra, Ireland—Pyramid',
-    cardImage:
-      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/paddler2x.png',
-    avatar:
-      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/Trainer/Avatar_32.png',
-    time: '30:53',
-    distance: '6,248 M',
-    details: true,
-    episode_count: 0,
-  },
-  {
-    title: 'Performance Series',
-    cardImage:
-      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/banana2x.png',
-    avatar:
-      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/Trainer/Avatar_32%202.png',
-    time: '',
-    distance: null,
-    details: false,
-    episode_count: 9,
-  },
-  {
-    title: 'Slow Pulls and Fast Intervals',
-    cardImage:
-      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/img_marketing_web_cardimg_marketing_web_card%402x%20(25).png',
-    avatar:
-      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/Trainer/%20Avatar_32%203.png',
-    time: '44:13',
-    distance: '9,948 M',
-    details: false,
-    episode_count: 0,
-  },
-  {
-    title: '20 Minutes to Toned',
-    cardImage:
-      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/img_marketing_web_cardimg_marketing_web_card%402x%20(19).png',
-    avatar:
-      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/Trainer/%20Avatar_32%204.png',
-    time: '',
-    distance: '',
-    details: false,
-    episode_count: 12,
-  },
-  {
-    title: 'Charles Race, Boston, Massachusetts',
-    cardImage:
-      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/img_marketing_web_cardimg_marketing_web_card%402x%20(32).png',
-    avatar:
-      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/Trainer/whipple_mary_hero3x_001.png',
-    time: '36.22',
-    distance: '8,648 M',
-    details: false,
-    episode_count: 0,
-  },
-  {
-    title: 'Full-Body HIIT Series',
-    cardImage:
-      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/img_marketing_web_cardimg_marketing_web_card%402x%20(20).png',
-    avatar:
-      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/Trainer/%20Avatar_32%205.png',
-    time: null,
-    distance: null,
-    details: false,
-    episode_count: 12,
-  },
-  {
-    title: 'Kafue River, Zambia—Power Stroke Pyramid',
-    cardImage:
-      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/img_marketing_web_cardimg_marketing_web_card%402x%20(35).png',
-    avatar:
-      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/Trainer/%20Avatar_32%206.png',
-    time: '22.22',
-    distance: '4,660 M',
-    details: false,
-    episode_count: 0,
-  },
-  {
-    title: 'Shred & Burn Series',
-    cardImage:
-      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/img_marketing_web_cardimg_marketing_web_card%402x%20(21).png',
-    avatar:
-      'https://raw.githubusercontent.com/sdansby14/ifit-code-challenge/master/src/images/Trainer/%20Avatar_32%207.png',
-    time: '',
-    distance: '',
-    details: false,
-    episode_count: 16,
-  },
-];
+import SeriesContext from '../context/series-context';
 
 const Series = () => {
   return (
-    <PlaylistSection>
-      <PlaylistGrid>
-        {playlists.map(
-          ({
-            title,
-            cardImage,
-            avatar,
-            time,
-            distance,
-            details,
-            episode_count,
-          }) => {
-            return (
-              <PlaylistCard key={title}>
-                <PlaylistImageContainer cardImage={cardImage}>
-                  {!!episode_count && (
-                    <SeriesOverlay>
-                      <PlaylistHeading>{episode_count}</PlaylistHeading>
-                      <PlaylistLabel>Workouts</PlaylistLabel>
-                      <PlayerIcon src={PlayIcon} alt="Playlist Icon" />
-                    </SeriesOverlay>
-                  )}
-                </PlaylistImageContainer>
-                <PlaylistDetails>
-                  <TextContainer>
-                    <TextBlock>{title}</TextBlock>
-                    <SubDetailsContainer>
-                      {!!time && (
-                        <div>
-                          <PlaylistIcon src={TimerIcon} alt="Timer Icon" />
-                          <PlaylistInfo>{time}</PlaylistInfo>
-                        </div>
+    <SeriesContext.Consumer>
+      {(context) => (
+        <PlaylistSection>
+          <PlaylistGrid>
+            {context.playlists.map(
+              ({
+                title,
+                cardImage,
+                avatar,
+                time,
+                distance,
+                details,
+                episode_count,
+              }) => {
+                return (
+                  <PlaylistCard key={title}>
+                    <PlaylistImageContainer cardImage={cardImage}>
+                      {!!episode_count && (
+                        <SeriesOverlay>
+                          <PlaylistHeading>{episode_count}</PlaylistHeading>
+                          <PlaylistLabel>Workouts</PlaylistLabel>
+                          <PlayerIcon src={PlayIcon} alt="Playlist Icon" />
+                        </SeriesOverlay>
                       )}
+                    </PlaylistImageContainer>
+                    <PlaylistDetails>
+                      <TextContainer>
+                        <TextBlock>{title}</TextBlock>
+                        <SubDetailsContainer>
+                          {!!time && (
+                            <div>
+                              <PlaylistIcon src={TimerIcon} alt="Timer Icon" />
+                              <PlaylistInfo>{time}</PlaylistInfo>
+                            </div>
+                          )}
 
-                      {!!distance && (
-                        <div>
-                          <PlaylistIcon
-                            src={DistanceIcon}
-                            alt="Distance Icon"
-                          />
-                          <PlaylistInfo>{distance}</PlaylistInfo>
-                        </div>
-                      )}
-                    </SubDetailsContainer>
-                    {details && <ViewDetails>View Details</ViewDetails>}
-                  </TextContainer>
-                  <AvatarContainer>
-                    <PlaylistAvatar src={avatar} alt={title} />
-                  </AvatarContainer>
-                </PlaylistDetails>
-              </PlaylistCard>
-            );
-          }
-        )}
-      </PlaylistGrid>
-    </PlaylistSection>
+                          {!!distance && (
+                            <div>
+                              <PlaylistIcon
+                                src={DistanceIcon}
+                                alt="Distance Icon"
+                              />
+                              <PlaylistInfo>{distance}</PlaylistInfo>
+                            </div>
+                          )}
+                        </SubDetailsContainer>
+                        {details && <ViewDetails>View Details</ViewDetails>}
+                      </TextContainer>
+                      <AvatarContainer>
+                        <PlaylistAvatar src={avatar} alt={title} />
+                      </AvatarContainer>
+                    </PlaylistDetails>
+                  </PlaylistCard>
+                );
+              }
+            )}
+          </PlaylistGrid>
+        </PlaylistSection>
+      )}
+    </SeriesContext.Consumer>
   );
 };
 
@@ -164,24 +78,17 @@ const PlaylistSection = styled.section`
 
 const PlaylistGrid = styled.div`
   display: grid;
-  width: 84%;
-  margin: 0 auto;
   grid-column-gap: 24px;
   grid-row-gap: 24px;
   grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
 
   @media (max-width: 1439px) {
-    width: 50%;
     grid-template-columns: repeat(2, 1fr);
   }
 
   @media (max-width: 767px) {
     grid-template-columns: repeat(1, 1fr);
-  }
-
-  @media (max-width: 515px) {
-    margin: none;
-    justify-content: center;
   }
 `;
 
@@ -191,6 +98,11 @@ const PlaylistCard = styled.div`
   border-radius: 4px;
   background-color: #fff;
   box-shadow: 0 7px 12px rgba(46, 49, 52, 0.3);
+
+  @media (max-width: 1439px) {
+    width: 360px;
+    height: 305px;
+  }
 
   @media (max-width: 300px) {
     width: 250px;

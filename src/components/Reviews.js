@@ -36,7 +36,6 @@ const ReviewsSection = styled.section`
   height: 232px;
   border-radius: 2px;
   background-color: #f4f5f7;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   overflow-x: hidden;
 `;
 
