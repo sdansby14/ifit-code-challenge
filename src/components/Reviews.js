@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import WiredLogo from '../images/wired_logo.png';
-import MashableLogo from '../images/mashable_logo.png';
-import GearJunkieLogo from '../images/gearjunkie-vector-logo.png';
+import WiredLogo from '../images/svgs/wired-logo.svg';
+import MashableLogo from '../images/svgs/mashable-logo.svg';
+import GearJunkieLogo from '../images/svgs/gear-junkie-logo.svg';
 
 const Reviews = () => {
   return (
@@ -37,6 +37,7 @@ const ReviewsSection = styled.section`
   border-radius: 2px;
   background-color: #f4f5f7;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  overflow-x: hidden;
 `;
 
 const ReviewGrid = styled.div`
@@ -62,7 +63,8 @@ const ReviewSpan = styled.span`
 
 const Card = styled.div`
   display: flex;
-  width: 440px;
+  min-width: 230px;
+  max-width: 440px;
   height: 184px;
   flex-direction: column;
   justify-content: center;

@@ -38,21 +38,25 @@ const TheFooter = () => {
         <SocialIcons src={Instagram} alt="Instagram Icon" />
       </SocialSection>
       <TermsSection>
-        <TermsSelect name="language" id="language_select">
-          <option value="En">English</option>
-        </TermsSelect>
+        <div>
+          <TermsSelect name="language" id="language_select">
+            <option value="En">English</option>
+          </TermsSelect>
+        </div>
         <TermsContainer>
           <TermsSpan>© iFit.com. All Rights Reserved.</TermsSpan>
           <TermsSpan>Privacy Policy</TermsSpan>
           <TermsSpan>Terms of Use</TermsSpan>
         </TermsContainer>
+        <div></div>
       </TermsSection>
     </FooterSecton>
   );
 };
 
 const FooterSecton = styled.footer`
-  height: 348px;
+  max-height: 800px;
+  min-height: 348px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   background-color: #2e3134;
   color: #fff;
@@ -64,19 +68,32 @@ const LinkSection = styled.section`
 `;
 
 const SocialSection = styled.section`
-  height: 15%;
+  height: 75px;
   border-bottom: 2px solid #585a5d;
   display: flex;
   justify-content: center;
+  align-content: center;
+
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: start;
+  }
 `;
 
 const LinkGrid = styled.div`
   width: 50%;
+  max-width: 1440px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin: 0 auto;
   justify-items: center;
   padding: 20px 0;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: start;
+  }
 `;
 
 const FooterLink = styled.li`
@@ -100,16 +117,28 @@ const BoldFooterLink = styled.li`
 
 const SocialIcons = styled.img`
   margin-right: 25px;
+  width: 30px;
 `;
 
 const TermsSection = styled.section`
-  display: flex;
-  height: 29%;
-  align-items: center;
+  display: grid;
+  min-height: 100px;
+  grid-template-columns: repeat(3, 1fr);
+  align-content: center;
+  justify-items: center;
+
+  @media (max-width: 1357px) {
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: start;
+  }
 `;
 
 const TermsContainer = styled.div`
-  margin: 0 31%;
+  margin: 0 auto;
+
+  @media (max-width: 800px) {
+    margin: 0 40px;
+  }
 `;
 
 const TermsSpan = styled.span`
@@ -120,11 +149,15 @@ const TermsSpan = styled.span`
   font-weight: 600;
   letter-spacing: 0.3px;
   line-height: 2rem;
+
+  @media (max-width: 730px) {
+    display: block;
+  }
 `;
 
 const TermsSelect = styled.select`
-  margin-left: 50px;
-  width: 85px;
+  margin-left: 40px;
+  width: 95px;
   background-color: inherit;
   font-size: 16px;
   height: 34px;

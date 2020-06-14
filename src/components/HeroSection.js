@@ -1,6 +1,10 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import HeroImage from '../images/gmapsinworkout.png';
+import HeroImageMed from '../images/gmapsinworkout-med.png';
+import HeroImageSm from '../images/gmapsinworkout-sm.png';
+import HeroImageXSm from '../images/gmapsinworkout-xsm.png';
+import HeroImageXXSm from '../images/gmapsinworkout-xxsm.png';
 
 const Hero = () => {
   return (
@@ -16,17 +20,18 @@ const Hero = () => {
 };
 
 const fadeIn = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  0%{
+      transform: rotate(0) translateY(-15%);
+      opacity: 0;
+    }
+  100%{
+      transform: rotate(0) translateY(0);
+      opacity: 1;
+    }
 `;
 
 const HeroSection = styled.div`
   display: flex;
-  width: auto;
   height: 801px;
   justify-content: center;
   align-items: center;
@@ -34,7 +39,31 @@ const HeroSection = styled.div`
     -webkit-gradient(linear, left top, left bottom, from(#000), to(#000));
   background-position: 0px 0px, 0px 0px;
   background-size: cover, auto;
+  background-position: center center;
   opacity: 1;
+
+  @media (max-width: 1040px) {
+    background-image: url('${HeroImageMed}'),
+    -webkit-gradient(linear, left top, left bottom, from(#000), to(#000));
+    height: 505px;
+  }
+
+  @media (max-width: 762px) {
+    background-image: url('${HeroImageSm}'),
+    -webkit-gradient(linear, left top, left bottom, from(#000), to(#000));
+    height: 320px;
+  }
+  
+  @media (max-width: 550px) {
+    background-image: url('${HeroImageXSm}'),
+    -webkit-gradient(linear, left top, left bottom, from(#000), to(#000));
+    height: 279px;
+  }
+  
+  @media (max-width: 350px) {
+    background-image: url('${HeroImageXXSm}'),
+    -webkit-gradient(linear, left top, left bottom, from(#000), to(#000));
+  }
 `;
 
 const HeroHeading = styled.div`
@@ -46,7 +75,19 @@ const HeroHeading = styled.div`
   text-align: center;
   letter-spacing: 1px;
   margin: 3rem 0;
-  animation: 2s ${fadeIn} ease-out;
+  animation: ${fadeIn} 1s forwards 0s ease-out;
+
+  @media (max-width: 991px) {
+    font-size: 54px;
+  }
+
+  @media (max-width: 730px) {
+    font-size: 34px;
+  }
+
+  @media (max-width: 460px) {
+    font-size: 21px;
+  }
 `;
 
 const Container = styled.div`
@@ -58,7 +99,7 @@ const Container = styled.div`
 const Button = styled.button`
   display: flex;
   overflow: visible;
-  width: 392px;
+  width: 60%;
   height: 56px;
   max-width: 850px;
   margin: 0 auto;

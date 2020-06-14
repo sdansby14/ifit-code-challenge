@@ -45,9 +45,10 @@ const EquipmentSection = () => {
 };
 
 const Equipment = styled.section`
+  max-width: 1440px;
   text-align: center;
   padding: 0 30px;
-  margin: 50px 0;
+  margin: 50px auto;
 `;
 
 const EquipmentHeader = styled.h3`
@@ -62,10 +63,23 @@ const EquipmentHeader = styled.h3`
 const EquipmentContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
+  justify-items: center;
+  margin 0 auto;
+
+  @media (max-width: 1439px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 const EquipmentCard = styled.div`
-  width: 330px;
+  width: 95%;
+  min-width: 220px;
   height: 330px;
   box-shadow: 0 1px 2px rgba(46, 49, 52, 0.4);
   border-radius: 4px;

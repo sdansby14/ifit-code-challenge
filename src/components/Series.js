@@ -158,16 +158,31 @@ const Series = () => {
 
 const PlaylistSection = styled.section`
   padding: 80px 0 60px 0;
+  max-width: 1440px;
+  margin: 0 auto;
 `;
 
 const PlaylistGrid = styled.div`
   display: grid;
   width: 84%;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0 auto;
   grid-column-gap: 24px;
   grid-row-gap: 24px;
   grid-template-columns: repeat(4, 1fr);
+
+  @media (max-width: 1439px) {
+    width: 50%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media (max-width: 515px) {
+    margin: none;
+    justify-content: center;
+  }
 `;
 
 const PlaylistCard = styled.div`
@@ -176,6 +191,10 @@ const PlaylistCard = styled.div`
   border-radius: 4px;
   background-color: #fff;
   box-shadow: 0 7px 12px rgba(46, 49, 52, 0.3);
+
+  @media (max-width: 300px) {
+    width: 250px;
+  }
 `;
 
 const PlaylistImageContainer = styled.div`
