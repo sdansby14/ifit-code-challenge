@@ -66,7 +66,7 @@ const Button = styled.button`
   align-items: center;
   border-radius: 4px;
   background-color: #0069d2;
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.24), 0 0 0 1px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 0 0 1px rgba(0, 0, 0, 0.12);
   font-size: 14px;
   line-height: 14px;
   font-weight: 600;
