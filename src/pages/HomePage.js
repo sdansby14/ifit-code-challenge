@@ -6,7 +6,7 @@ import EquipmentSection from '../components/EquipmentSection';
 
 const HomePage = () => {
   return (
-    <div className="container">
+    <div>
       <Hero />
       <Reviews />
       <Series />

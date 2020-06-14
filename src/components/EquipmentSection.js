@@ -33,7 +33,7 @@ const EquipmentSection = () => {
       <EquipmentContainer>
         {equipment.map(({ title, img_src }) => {
           return (
-            <EquipmentCard>
+            <EquipmentCard key={title}>
               <img src={img_src} alt={title} />
               <EquipmentTitle>{title}</EquipmentTitle>
             </EquipmentCard>
