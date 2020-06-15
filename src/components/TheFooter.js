@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import Youtube from '../images/svgs/youtube.svg';
 import Pinterest from '../images/svgs/pinterest.svg';
@@ -6,8 +6,11 @@ import Facebook from '../images/svgs/facebook.svg';
 import Twitter from '../images/svgs/twitter.svg';
 import Instagram from '../images/svgs/instagram.svg';
 import Chevron from '../images/Icon/chevron.png';
+import LanguageContext from '../context/language-context';
 
 const TheFooter = () => {
+  const { language, setLanguage } = useContext(LanguageContext);
+
   return (
     <FooterSecton>
       <LinkSection>
@@ -59,8 +62,14 @@ const TheFooter = () => {
       </SocialSection>
       <TermsSection>
         <div>
-          <TermsSelect name="language" id="language_select">
-            <option value="En">English</option>
+          <TermsSelect
+            name="language"
+            id="language_select"
+            value={language}
+            onChange={(event) => setLanguage(event.target.value)}
+          >
+            <option value="en">English</option>
+            <option value="es">Español</option>
           </TermsSelect>
         </div>
         <TermsContainer>

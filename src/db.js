@@ -137,4 +137,30 @@ const reviews = [
   },
 ];
 
-export { playlists, equipment, reviews };
+const english = {
+  nav_blog: 'Blog',
+  nav_nourish: 'Nourish',
+  nav_shop: 'Shop',
+  nav_exercise: 'Exercise',
+  nav_nutrition: 'Nutrition',
+  nav_activity: 'Activity',
+  nav_sleep: 'Sleep',
+  nav_btn: 'Sign Up',
+  title: 'The best personal training, right in your own home',
+  button_text: 'JOIN IFIT COACH',
+};
+
+const spanish = {
+  nav_blog: 'Blog',
+  nav_nourish: 'Nutrir',
+  nav_shop: 'tienda',
+  nav_exercise: 'Ejercicio',
+  nav_nutrition: 'Nutrición',
+  nav_activity: 'Actividad',
+  nav_sleep: 'Dormir',
+  nav_btn: 'Regístrate',
+  title: 'El mejor entrenamiento personal, justo en tu propia casa.',
+  button_text: 'ÚNETE AL ENTRENADOR IFIT',
+};
+
+export { playlists, equipment, reviews, english, spanish };

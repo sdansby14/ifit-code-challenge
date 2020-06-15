@@ -7,9 +7,11 @@ import HeroImageXSm from '../images/gmapsinworkout-xsm.png';
 import HeroImageXXSm from '../images/gmapsinworkout-xxsm.png';
 import { useInView } from 'react-intersection-observer';
 import GlobalContext from '../context/global-context';
+import LanguageContext from '../context/language-context';
 
 const Hero = () => {
   const { setIsVisible } = useContext(GlobalContext);
+  const { languageContent } = useContext(LanguageContext);
 
   const [ref, inView] = useInView({
     threshold: 0,
@@ -22,10 +24,8 @@ const Hero = () => {
   return (
     <HeroSection ref={ref}>
       <Container>
-        <HeroHeading>
-          The best personal training, right in your own home
-        </HeroHeading>
-        <Button>JOIN IFIT COACH</Button>
+        <HeroHeading>{languageContent.title}</HeroHeading>
+        <Button>{languageContent.button_text}</Button>
       </Container>
     </HeroSection>
   );

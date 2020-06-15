@@ -1,12 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import GlobalContext from '../context/global-context';
+import LeftSlider from '../images/Icon/slide_left_btn.png';
+import RightSlider from '../images/Icon/slide_right_btn.png';
 
 const Reviews = () => {
   return (
     <GlobalContext.Consumer>
       {(context) => (
         <ReviewsSection>
+          <SliderContainer>
+            <SliderImageLeft src={LeftSlider} alt="Left Slider Button" />
+            <SliderImageRight src={RightSlider} alt="Right Slider Button" />
+          </SliderContainer>
           <ReviewGrid>
             {context.reviews.map(({ id, review, image, alt }) => {
               return (
@@ -30,9 +36,26 @@ const ReviewsSection = styled.section`
   overflow-x: hidden;
 `;
 
+const SliderContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 250px;
+`;
+
+const SliderImageLeft = styled.img`
+  position: absolute;
+  left: -13px;
+  bottom: 86px;
+`;
+
+const SliderImageRight = styled.img`
+  position: absolute;
+  right: 0;
+  bottom: 86px;
+`;
+
 const ReviewGrid = styled.div`
   display: grid;
-  width: 95%;
   max-width: 1440px;
   height: 100%;
   margin: 0 auto;
@@ -53,7 +76,7 @@ const ReviewSpan = styled.span`
 
 const Card = styled.div`
   display: flex;
-  min-width: 230px;
+  min-width: 340px;
   max-width: 440px;
   height: 184px;
   flex-direction: column;

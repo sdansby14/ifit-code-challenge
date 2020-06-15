@@ -1,21 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled, { css } from 'styled-components';
 import iFitLogo from '../images/svgs/ifit-coach-logo.svg';
+import LanguageContext from '../context/language-context';
 
 const TheNavbar = ({ isVisible }) => {
+  const { languageContent } = useContext(LanguageContext);
+
   return (
     <Nav isVisible={isVisible}>
       <TopNavSection>
         <LinkContainer>
-          <a href="#">Blog</a>
+          <a href="#">{languageContent.nav_blog}</a>
         </LinkContainer>
         <Divider />
         <LinkContainer>
-          <a href="#">Nourish</a>
+          <a href="#">{languageContent.nav_nourish}</a>
         </LinkContainer>
         <Divider />
         <LinkContainer>
-          <a href="#">Shop</a>
+          <a href="#">{languageContent.nav_shop}</a>
         </LinkContainer>
         <Divider />
       </TopNavSection>
@@ -28,20 +31,20 @@ const TheNavbar = ({ isVisible }) => {
           </LogoContainer>
           <MainLinkContainer>
             <LinkContainer>
-              <a href="#">Exercise</a>
+              <a href="#">{languageContent.nav_exercise}</a>
             </LinkContainer>
             <LinkContainer>
-              <a href="#">Nutrition</a>
+              <a href="#">{languageContent.nav_nutrition}</a>
             </LinkContainer>
             <LinkContainer>
-              <a href="#">Activity</a>
+              <a href="#">{languageContent.nav_activity}</a>
             </LinkContainer>
             <LinkContainer>
-              <a href="#">Sleep</a>
+              <a href="#">{languageContent.nav_sleep}</a>
             </LinkContainer>
           </MainLinkContainer>
           <SignupContainer>
-            <Button>Sign Up</Button>
+            <Button>{languageContent.nav_btn}</Button>
           </SignupContainer>
         </NavGrid>
       </NavSection>

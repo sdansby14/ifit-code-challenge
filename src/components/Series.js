@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import TimerIcon from '../images/Icon/icn_timer_line.png';
+import React, { useState } from 'react';
+import styled, { css, keyframes } from 'styled-components';
+import TimerIcon from '../images/svgs/timer.svg';
 import PlayIcon from '../images/svgs/player.svg';
-import DistanceIcon from '../images/Icon/icn_distance_line.png';
+import DistanceIcon from '../images/svgs/distance.svg';
 import GlobalContext from '../context/global-context';
 
 const Series = () => {
@@ -37,20 +37,23 @@ const Series = () => {
                         <TextBlock>{title}</TextBlock>
                         <SubDetailsContainer>
                           {!!time && (
-                            <div>
-                              <PlaylistIcon src={TimerIcon} alt="Timer Icon" />
+                            <PlaylistContainer>
+                              <PlaylistIcon
+                                type="image/svg+xml"
+                                data={TimerIcon}
+                              />
                               <PlaylistInfo>{time}</PlaylistInfo>
-                            </div>
+                            </PlaylistContainer>
                           )}
 
                           {!!distance && (
-                            <div>
+                            <PlaylistContainer>
                               <PlaylistIcon
-                                src={DistanceIcon}
-                                alt="Distance Icon"
+                                type="image/svg+xml"
+                                data={DistanceIcon}
                               />
                               <PlaylistInfo>{distance}</PlaylistInfo>
-                            </div>
+                            </PlaylistContainer>
                           )}
                         </SubDetailsContainer>
                         {details && <ViewDetails>View Details</ViewDetails>}
@@ -69,6 +72,52 @@ const Series = () => {
     </GlobalContext.Consumer>
   );
 };
+
+const fadeUp = keyframes`
+      0%{
+        transform: translateY(50%);
+        opacity: 0;
+        }
+    100%{
+        transform: rotate(xx) translateY(0);
+        opacity: 1;
+        }
+`;
+
+const fadeUpAnimation = css`
+  animation: ${fadeUp} 0.5s forwards 0s ease-out;
+`;
+
+const wiggle = keyframes`
+  0%{
+    transform: rotate(0);
+    }
+  15%{
+    transform: rotate(15deg);
+    }
+  30%{
+    transform: rotate(-15deg);
+    }
+  45%{
+    transform: rotate(15deg);
+    }
+  60%{
+    transform: rotate(-15deg);
+    }
+  75%{
+    transform: rotate(15deg);
+    }
+  90%{
+    transform: rotate(-15deg);
+    }
+  100%{
+    transform: rotate(0);
+    }
+`;
+
+const wiggleAnimation = css`
+  animation: ${wiggle} 0.5s forwards 0s ease-out;
+`;
 
 const PlaylistSection = styled.section`
   padding: 80px 0 60px 0;
@@ -92,6 +141,17 @@ const PlaylistGrid = styled.div`
   }
 `;
 
+const TextBlock = styled.div`
+  display: inline-block;
+  width: 206px;
+  height: 47px;
+  font-weight: 700;
+`;
+
+const PlaylistIcon = styled.object`
+  margin-right: 5px;
+`;
+
 const PlaylistCard = styled.div`
   width: 288px;
   height: 280px;
@@ -100,8 +160,15 @@ const PlaylistCard = styled.div`
   cursor: pointer;
   box-shadow: 0 1px 2px rgba(46, 49, 52, 0.4);
   transition: 0.3s;
+
   :hover {
     box-shadow: 0 7px 12px rgba(46, 49, 52, 0.3);
+  }
+  &:hover ${TextBlock} {
+    ${fadeUpAnimation}
+  }
+  &:hover ${PlaylistIcon} {
+    ${wiggleAnimation}
   }
 
   @media (max-width: 1439px) {
@@ -131,34 +198,25 @@ const PlaylistDetails = styled.div`
   padding: 5px 10px;
 `;
 
+const PlaylistContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-self: auto;
 `;
 
-const TextBlock = styled.div`
-  display: inline-block;
-  width: 206px;
-  height: 47px;
-  font-weight: 700;
-`;
-
 const SubDetailsContainer = styled.div`
   display: flex;
   overflow: visible;
   height: 30px;
-  align-items: center;
   align-self: stretch;
   order: 0;
   flex: 0 auto;
   text-decoration: none;
-`;
-
-const PlaylistIcon = styled.img`
-  width: 12px;
-  height: 12px;
-  margin-right: 5px;
 `;
 
 const PlaylistInfo = styled.span`
@@ -179,13 +237,7 @@ const ViewDetails = styled.div`
 `;
 
 const AvatarContainer = styled.div`
-  -webkit-align-self: stretch;
-  -ms-flex-item-align: stretch;
-  -ms-grid-row-align: stretch;
   align-self: stretch;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
   flex: 1;
   text-align: right;
 `;
