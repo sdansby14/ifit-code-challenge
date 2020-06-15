@@ -104,7 +104,7 @@ const PlaylistCard = styled.div`
     height: 305px;
   }
 
-  @media (max-width: 300px) {
+  @media (max-width: 359px) {
     width: 250px;
   }
 `;

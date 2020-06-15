@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import HeroImage from '../images/gmapsinworkout.png';
 import HeroImageMed from '../images/gmapsinworkout-med.png';
 import HeroImageSm from '../images/gmapsinworkout-sm.png';
 import HeroImageXSm from '../images/gmapsinworkout-xsm.png';
 import HeroImageXXSm from '../images/gmapsinworkout-xxsm.png';
+import { useInView } from 'react-intersection-observer';
+import GlobalContext from '../context/global-context';
 
 const Hero = () => {
+  const { setIsVisible } = useContext(GlobalContext);
+
+  const [ref, inView] = useInView({
+    threshold: 0,
+  });
+
+  useEffect(() => {
+    setIsVisible(inView);
+  }, [inView]);
+
   return (
-    <HeroSection>
+    <HeroSection ref={ref}>
       <Container>
         <HeroHeading>
           The best personal training, right in your own home

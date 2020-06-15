@@ -1,12 +1,17 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import GlobalContext from '../context/global-context';
+import { useInView } from 'react-intersection-observer';
 
 const EquipmentSection = () => {
+  const [ref, inView] = useInView({
+    rootMargin: '100px',
+  });
+
   return (
     <GlobalContext.Consumer>
       {(context) => (
-        <Equipment>
+        <Equipment ref={ref} inView={inView}>
           <EquipmentHeader>
             Interested in our exciting iFit-enabled equipment?
           </EquipmentHeader>
@@ -26,11 +31,26 @@ const EquipmentSection = () => {
   );
 };
 
+const zoomIn = keyframes`
+    0%{
+        transform: rotate(0) scale(1.5);
+        opacity: 0;
+      }
+    100%{
+        transform: rotate(0) scale(1);
+        }
+`;
+
+const animation = css`
+  animation: ${zoomIn} 1s forwards 0s ease-in;
+`;
+
 const Equipment = styled.section`
   max-width: 1440px;
   text-align: center;
   padding: 0 30px;
   margin: 50px auto;
+  ${(props) => (props.inView ? animation : 'animation: none')};
 `;
 
 const EquipmentHeader = styled.h3`

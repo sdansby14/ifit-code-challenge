@@ -1,11 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
-
+import styled, { css } from 'styled-components';
 import iFitLogo from '../images/svgs/ifit-coach-logo.svg';
 
-const TheNavbar = () => {
+const TheNavbar = ({ isVisible }) => {
   return (
-    <Nav>
+    <Nav isVisible={isVisible}>
       <TopNavSection>
         <LinkContainer>Blog</LinkContainer>
         <Divider />
@@ -35,7 +34,17 @@ const TheNavbar = () => {
 };
 
 const Nav = styled.nav`
+  position: fixed;
+  width: 100vw;
   height: 15vh;
+  z-index: 10;
+  background-color: #fff;
+
+  ${(props) =>
+    !props.isVisible &&
+    css`
+      display: none;
+    `}
 `;
 
 const TopNavSection = styled.section`
