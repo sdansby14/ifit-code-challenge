@@ -13,29 +13,49 @@ const TheFooter = () => {
       <LinkSection>
         <LinkGrid>
           <ul>
-            <BoldFooterLink>Company</BoldFooterLink>
-            <FooterLink>About</FooterLink>
-            <FooterLink>Contact Us</FooterLink>
-            <FooterLink>Careers</FooterLink>
+            <BoldFooterLink>
+              <a href="#">Company</a>
+            </BoldFooterLink>
+            <FooterLink>
+              <a href="#">About</a>
+            </FooterLink>
+            <FooterLink>
+              <a href="#">Contact Us</a>
+            </FooterLink>
+            <FooterLink>
+              <a href="#">Careers</a>
+            </FooterLink>
           </ul>
           <ul>
-            <BoldFooterLink>Account</BoldFooterLink>
-            <FooterLink>Log In</FooterLink>
-            <FooterLink>Create Account</FooterLink>
+            <BoldFooterLink>
+              <a href="#">Account</a>
+            </BoldFooterLink>
+            <FooterLink>
+              <a href="#">Log In</a>
+            </FooterLink>
+            <FooterLink>
+              <a href="#">Create Account</a>
+            </FooterLink>
           </ul>
           <ul>
-            <BoldFooterLink>Support</BoldFooterLink>
-            <FooterLink>Help Center</FooterLink>
-            <FooterLink>Accessibility</FooterLink>
+            <BoldFooterLink>
+              <a href="#">Support</a>
+            </BoldFooterLink>
+            <FooterLink>
+              <a href="#">Help Center</a>
+            </FooterLink>
+            <FooterLink>
+              <a href="#">Accessibility</a>
+            </FooterLink>
           </ul>
         </LinkGrid>
       </LinkSection>
       <SocialSection>
-        <SocialIcons src={Youtube} alt="Youtube Icon" />
-        <SocialIcons src={Pinterest} alt="Pinterest Icon" />
-        <SocialIcons src={Facebook} alt="Facebook Icon" />
-        <SocialIcons src={Twitter} alt="Twitter Icon" />
-        <SocialIcons src={Instagram} alt="Instagram Icon" />
+        <SocialIcons type="image/svg+xml" data={Youtube} />
+        <SocialIcons type="image/svg+xml" data={Pinterest} />
+        <SocialIcons type="image/svg+xml" data={Facebook} />
+        <SocialIcons type="image/svg+xml" data={Twitter} />
+        <SocialIcons type="image/svg+xml" data={Instagram} />
       </SocialSection>
       <TermsSection>
         <div>
@@ -115,9 +135,13 @@ const BoldFooterLink = styled.li`
   line-height: 2rem;
 `;
 
-const SocialIcons = styled.img`
+const SocialIcons = styled.object`
   margin-right: 25px;
-  width: 30px;
+  width: 40px;
+
+  @media (max-width: 800px) {
+    width: 30px;
+  }
 `;
 
 const TermsSection = styled.section`

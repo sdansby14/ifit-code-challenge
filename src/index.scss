@@ -8,6 +8,11 @@ body {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 @font-face {
   font-family: 'Opensans';
   src: url('./fonts/OpenSans-Light.ttf') format('truetype');

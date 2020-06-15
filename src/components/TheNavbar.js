@@ -6,23 +6,39 @@ const TheNavbar = ({ isVisible }) => {
   return (
     <Nav isVisible={isVisible}>
       <TopNavSection>
-        <LinkContainer>Blog</LinkContainer>
+        <LinkContainer>
+          <a href="#">Blog</a>
+        </LinkContainer>
         <Divider />
-        <LinkContainer>Nourish</LinkContainer>
+        <LinkContainer>
+          <a href="#">Nourish</a>
+        </LinkContainer>
         <Divider />
-        <LinkContainer>Shop</LinkContainer>
+        <LinkContainer>
+          <a href="#">Shop</a>
+        </LinkContainer>
         <Divider />
       </TopNavSection>
       <NavSection>
         <NavGrid>
           <LogoContainer>
-            <img src={iFitLogo} alt="iFit Logo" />
+            <a href="#">
+              <img src={iFitLogo} alt="iFit Logo" />
+            </a>
           </LogoContainer>
           <MainLinkContainer>
-            <LinkContainer>Exercise</LinkContainer>
-            <LinkContainer>Nutrition</LinkContainer>
-            <LinkContainer>Activity</LinkContainer>
-            <LinkContainer>Sleep</LinkContainer>
+            <LinkContainer>
+              <a href="#">Exercise</a>
+            </LinkContainer>
+            <LinkContainer>
+              <a href="#">Nutrition</a>
+            </LinkContainer>
+            <LinkContainer>
+              <a href="#">Activity</a>
+            </LinkContainer>
+            <LinkContainer>
+              <a href="#">Sleep</a>
+            </LinkContainer>
           </MainLinkContainer>
           <SignupContainer>
             <Button>Sign Up</Button>

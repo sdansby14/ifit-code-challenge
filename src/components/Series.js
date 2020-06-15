@@ -97,7 +97,12 @@ const PlaylistCard = styled.div`
   height: 280px;
   border-radius: 4px;
   background-color: #fff;
-  box-shadow: 0 7px 12px rgba(46, 49, 52, 0.3);
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(46, 49, 52, 0.4);
+  transition: 0.3s;
+  :hover {
+    box-shadow: 0 7px 12px rgba(46, 49, 52, 0.3);
+  }
 
   @media (max-width: 1439px) {
     width: 360px;
@@ -140,26 +145,12 @@ const TextBlock = styled.div`
 `;
 
 const SubDetailsContainer = styled.div`
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   overflow: visible;
   height: 30px;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-align-self: stretch;
-  -ms-flex-item-align: stretch;
   align-self: stretch;
-  -webkit-box-ordinal-group: 1;
-  -webkit-order: 0;
-  -ms-flex-order: 0;
   order: 0;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 auto;
-  -ms-flex: 0 auto;
   flex: 0 auto;
   text-decoration: none;
 `;
@@ -182,8 +173,6 @@ const PlaylistInfo = styled.span`
 
 const ViewDetails = styled.div`
   color: #0069d2;
-  font-size: 14px;
-  line-height: 16px;
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
